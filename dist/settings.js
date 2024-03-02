@@ -5,5 +5,8 @@ const dotenv_1 = require("dotenv");
 (0, dotenv_1.config)();
 exports.SETTINGS = {
     PORT: process.env.PORT || 3000,
-    PATH: {}
+    PATH: {
+        posts: '/posts',
+        blogs: '/blogs',
+    }
 };
