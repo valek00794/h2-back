@@ -8,5 +8,7 @@ exports.SETTINGS = {
     PATH: {
         posts: '/posts',
         blogs: '/blogs',
+        postsById: '/posts/:id',
+        blogsById: '/blogs/:id',
     }
 };

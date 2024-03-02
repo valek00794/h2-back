@@ -14,3 +14,5 @@ app.listen(settings_1.SETTINGS.PORT, () => {
 });
 app.get(settings_1.SETTINGS.PATH.blogs, blogsController_1.getBlogsController);
 app.get(settings_1.SETTINGS.PATH.posts, postsController_1.getPostsController);
+app.get(settings_1.SETTINGS.PATH.postsById, postsController_1.findPostController);
+app.get(settings_1.SETTINGS.PATH.blogsById, blogsController_1.findBlogController);
