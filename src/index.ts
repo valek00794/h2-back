@@ -1,5 +1,5 @@
-import { findBlogController, getBlogsController } from './controllers/blogsController'
-import { findPostController, getPostsController } from './controllers/postsController'
+import { deleteBlogController, findBlogController, getBlogsController } from './controllers/blogsController'
+import { deletePostController, findPostController, getPostsController } from './controllers/postsController'
 import { SETTINGS } from './settings'
 import express from 'express'
 
@@ -14,3 +14,5 @@ app.get(SETTINGS.PATH.blogs, getBlogsController)
 app.get(SETTINGS.PATH.posts, getPostsController)
 app.get(SETTINGS.PATH.postsById, findPostController)
 app.get(SETTINGS.PATH.blogsById, findBlogController)
+app.delete(SETTINGS.PATH.postsById, deletePostController)
+app.delete(SETTINGS.PATH.blogsById, deleteBlogController)

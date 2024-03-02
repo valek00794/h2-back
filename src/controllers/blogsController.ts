@@ -32,3 +32,21 @@ export const findBlogController = (req: Request, res: Response<APIErrorResult | 
             .json(db.blogs[blogId])
     }
 }
+
+export const deleteBlogController = (req: Request, res: Response<APIErrorResult>) => {
+    apiErrors = []
+    const blogId = db.blogs.findIndex(blog => blog.id === req.params.id)
+    if (blogId === -1) {
+        apiErrors.push({ field: "id", message: validationErrorsMassages.id })
+        res
+            .status(404)
+            .json({
+                errorsMessages: apiErrors
+            })
+    } else {
+        db.blogs.splice(blogId, 1)
+        res
+            .status(204)
+            .send()
+    }
+}

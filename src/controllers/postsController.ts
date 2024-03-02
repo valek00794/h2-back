@@ -31,3 +31,21 @@ export const findPostController = (req: Request, res: Response<APIErrorResult | 
             .json(db.posts[postId])
     }
 }
+
+export const deletePostController = (req: Request, res: Response<APIErrorResult>) => {
+    apiErrors = []
+    const postId = db.posts.findIndex(post => post.id === req.params.id)
+    if (postId === -1) {
+        apiErrors.push({ field: "id", message: validationErrorsMassages.id })
+        res
+            .status(404)
+            .json({
+                errorsMessages: apiErrors
+            })
+    } else {
+        db.posts.splice(postId, 1)
+        res
+            .status(204)
+            .send()
+    }
+}
